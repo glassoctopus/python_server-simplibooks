@@ -5,10 +5,12 @@ import { Button } from 'react-bootstrap';
 import { getBooks } from '../api/bookData';
 import { useAuth } from '../utils/context/authContext';
 import BookCard from '../components/BookCard';
+// import { getAuthors } from '../api/authorData';
 
 function Home() {
   // TODO: Set a state for books
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState(['books']);
+  // const [authors, setAuthors] = useState(['authors']);
 
   // TODO: Get user ID using useAuth Hook
   const { user } = useAuth();
@@ -17,6 +19,10 @@ function Home() {
   const getAllTheBooks = () => {
     getBooks(user.uid).then(setBooks);
   };
+
+  // const getAllTheAuthors = () => {
+  //   getAuthors(user.uid).then(setAuthors);
+  // };
 
   // TODO: make the call to the API to get all the books on component render
   useEffect(() => {

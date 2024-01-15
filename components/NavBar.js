@@ -19,10 +19,19 @@ export default function NavBar() {
           <Nav className="ml-auto">
             {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
             <Link passHref href="/">
-              <Nav.Link>Books</Nav.Link>
+              <Navbar.Brand>Books</Navbar.Brand>
             </Link>
             <Link passHref href="/book/new">
-              <Nav.Link>Create Book</Nav.Link>
+              <Navbar.Brand>Create Book</Navbar.Brand>
+            </Link>
+            <Link passHref href="/author">
+              <Navbar.Brand>Authors</Navbar.Brand>
+            </Link>
+            <Link passHref href="/author/new">
+              <Navbar.Brand>Create Author</Navbar.Brand>
+            </Link>
+            <Link passHref href="/profile">
+              <Navbar.Brand>Profile</Navbar.Brand>
             </Link>
           </Nav>
         </Navbar.Collapse>
