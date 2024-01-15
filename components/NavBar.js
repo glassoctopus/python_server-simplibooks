@@ -7,7 +7,7 @@ import {
   Navbar, Container, Nav,
 } from 'react-bootstrap';
 
-export default function NavBar() {  
+export default function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
