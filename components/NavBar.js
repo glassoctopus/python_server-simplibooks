@@ -24,7 +24,7 @@ export default function NavBar() {
             <Link passHref href="/book/new">
               <Navbar.Brand>Create Book</Navbar.Brand>
             </Link>
-            <Link passHref href="/author">
+            <Link passHref href="/"> {/* onClick={() => handleViewChange('authors')}> */}
               <Navbar.Brand>Authors</Navbar.Brand>
             </Link>
             <Link passHref href="/author/new">
@@ -45,4 +45,5 @@ NavBar.propTypes = {
     displayName: PropTypes.string,
     photoURL: PropTypes.string,
   }).isRequired,
+  // setView: PropTypes.func, // not required
 };
