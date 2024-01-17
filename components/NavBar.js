@@ -24,7 +24,7 @@ export default function NavBar() {
             <Link passHref href="/book/new">
               <Navbar.Brand>Create Book</Navbar.Brand>
             </Link>
-            <Link passHref href="/"> {/* onClick={() => handleViewChange('authors')}> */}
+            <Link passHref href="/author"> {/* onClick={() => handleViewChange('authors')}> */}
               <Navbar.Brand>Authors</Navbar.Brand>
             </Link>
             <Link passHref href="/author/new">
