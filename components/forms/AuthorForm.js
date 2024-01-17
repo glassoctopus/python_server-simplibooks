@@ -8,11 +8,10 @@ import { useAuth } from '../../utils/context/authContext';
 import { createAuthor, updateAuthor } from '../../api/authorData';
 
 const initialState = {
-  description: '',
-  image: '',
-  price: '',
-  sale: false,
-  title: '',
+  first_name: '',
+  last_name: '',
+  email: '',
+  favorite: false,
 };
 
 function AuthorForm({ obj }) {
@@ -31,9 +30,9 @@ function AuthorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateAuthor(formInput).then(() => router.push(`/book/${obj.firebaseKey}`));
+      updateAuthor(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
     } else {
-      const payload = { ...formInput, uid: user.uid };
+      const payload = { ...formInput, author_id: formInput.firebaseKey, uid: user.uid };
       createAuthor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateAuthor(patchPayload).then(() => {
@@ -94,7 +93,7 @@ function AuthorForm({ obj }) {
         onChange={(e) => {
           setFormInput((prevState) => ({
             ...prevState,
-            sale: e.target.checked,
+            favorite: e.target.checked,
           }));
         }}
       />
@@ -107,11 +106,10 @@ function AuthorForm({ obj }) {
 
 AuthorForm.propTypes = {
   obj: PropTypes.shape({
-    description: PropTypes.string,
-    image: PropTypes.string,
-    price: PropTypes.string,
-    sale: PropTypes.bool,
-    title: PropTypes.string,
+    email: PropTypes.string,
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    favorite: PropTypes.bool,
     author_id: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
