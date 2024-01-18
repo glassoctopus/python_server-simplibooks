@@ -29,10 +29,10 @@ function AuthorForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.firebaseKey) {
+    if (obj && obj.firebaseKey) {
       updateAuthor(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
     } else {
-      const payload = { ...formInput, author_id: formInput.firebaseKey, uid: user.uid };
+      const payload = { ...formInput, uid: user.uid };
       createAuthor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateAuthor(patchPayload).then(() => {
