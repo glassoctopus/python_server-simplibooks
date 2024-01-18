@@ -42,8 +42,11 @@ function BookForm({ obj }) {
       updateBook(formInput).then(() => router.push(`/book/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
+      console.warn(payload);
       createBook(payload).then(({ name }) => {
+        console.warn(payload);
         const patchPayload = { firebaseKey: name };
+        console.warn(patchPayload);
         updateBook(patchPayload).then(() => {
           router.push('/');
         });

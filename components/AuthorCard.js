@@ -9,7 +9,9 @@ function authorCard({ authorObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE author AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE authorS
   const deleteThisauthor = () => {
+    console.warn('are you deleting ');
     if (window.confirm(`Delete ${authorObj.title}?`)) {
+      console.warn('are you deleting ', authorObj.firebaseKey);
       deleteSingleAuthor(authorObj.firebaseKey).then(() => onUpdate());
     }
   };
