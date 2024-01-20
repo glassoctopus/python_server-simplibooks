@@ -18,21 +18,16 @@ export default function ViewAuthor() {
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
-        <img src={authorDetails.image} alt={authorDetails.title} style={{ width: '300px' }} />
+        <img src={authorDetails.image} alt={authorDetails.first_name} style={{ width: '300px' }} />
       </div>
       <div className="text-white ms-5 details">
         <h5>
-          {authorDetails.title} by {authorDetails.authorObject?.first_name} {authorDetails.authorObject?.last_name}
-          {authorDetails.authorObject?.favorite ? ' 🤍' : ''}
+          {authorDetails.first_name} {authorDetails.last_name}
+          {authorDetails.favorite ? ' 🤍' : ''}
         </h5>
-        Author Email: <a href={`mailto:${authorDetails.authorObject?.email}`}>{authorDetails.authorObject?.email}</a>
+        Author Email: <a href={`mailto:${authorDetails.email}`}>{authorDetails.email}</a>
         <p>{authorDetails.description || ''}</p>
         <hr />
-        <p>
-          {authorDetails.sale
-            ? `🏷️ Sale $${authorDetails.price}`
-            : `$${authorDetails.price}`}
-        </p>
       </div>
     </div>
   );

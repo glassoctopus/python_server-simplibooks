@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -19,6 +19,10 @@ function AuthorForm({ obj }) {
   const router = useRouter();
   const { user } = useAuth();
 
+  useEffect(() => {
+    if (obj.firebaseKey) setFormInput(obj);
+  }, [obj, user]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
@@ -29,7 +33,7 @@ function AuthorForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj && obj.firebaseKey) {
+    if (obj.firebaseKey) {
       updateAuthor(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
