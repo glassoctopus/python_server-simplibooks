@@ -5,8 +5,6 @@ import { Button } from 'react-bootstrap';
 import { getBooks } from '../api/bookData';
 import { useAuth } from '../utils/context/authContext';
 import BookCard from '../components/BookCard';
-// import { getAuthors } from '../api/authorData';
-// import AuthorCard from '../components/AuthorCard';
 
 function Home() {
   // TODO: Set a state for books
